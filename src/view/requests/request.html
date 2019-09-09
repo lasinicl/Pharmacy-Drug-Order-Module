@@ -1,0 +1,131 @@
+<!-- start: Header -->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="pharmacyIndex.html"><span>Assistant Pharmacist</span></a>
+            <!-- start: Header Menu -->
+            <div class="nav-no-collapse header-nav">
+                <ul class="nav pull-right">
+                    <!-- start: User Dropdown -->
+                    <li class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="halflings-icon white user"></i> John
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-title">
+                                <span>Account Settings</span>
+                            </li>
+                            <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+                            <li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                    <!-- end: User Dropdown -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start: Header -->
+<div class="container-fluid-full">
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+
+            <div id="sidebar-left" class="span2">
+                <div class="nav-collapse sidebar-nav">
+                    <ul class="nav nav-tabs nav-stacked main-menu">
+                        <li><a href="index.html"><i class="icon-edit"></i><span class="hidden-tablet">  Request Drugs </span></a></li>
+                        <li><a href="manageRequests.html"><i class="icon-edit"></i><span class="hidden-tablet">  Manage Requests </span></a></li>
+                        <li><a href="#reports"><i class="icon-list-alt"></i><span class="hidden-tablet"> Generate Reports</span></a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- end: Main Menu -->
+
+
+
+            <div ng-controller="requestCtrl" id="content" class="span10">
+
+                <h1><strong>Manage Drug Details</strong></h1><br>
+
+                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                    <thead>
+                    <tr>
+
+                        <th>Drug Name</th>
+                        <th>Unit Type</th>
+                        <th>Drug Category</th>
+                        <th>Drug Price</th>
+                        <th>Drug Quantity</th>
+                        <th>Expiration Date</th>
+                        <th>Request</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="drug in drugs">
+
+                        <td>{{drug.drugName}}</td>
+                        <td>{{drug.unitType}}</td>
+                        <td>{{drug.drugCategory}}</td>
+                        <td>{{drug.drugPrice}}</td>
+                        <td>{{drug.quantity}}</td>
+                        <td>{{drug.expiryDate}}</td>
+                        <td><button style="width:90px;" class="btn btn-primary" ng-click="showDetails(drug._id)">Request</button></td>
+                    </tr>
+
+
+
+
+                    </tbody>
+                </table>
+
+
+                <table class="table">
+
+                    <tr>
+                        <td>Drug Name</td>
+                        <td><input readonly class="form-control" ng-model="drug.drugName" style="width:200px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity To Request</td>
+                        <td><input class="form-control" style="width:200px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity Available</td>
+                        <td><input readonly class="form-control" style="width:200px;" ng-model="drug.quantity"></td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><input type="date" class="form-control" style="width:200px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td><select name="departments" style="width:200px;">
+                            <option value="select">-Select Department-</option>
+                            <option value="ipd">IPD Pharmacy</option>
+                            <option value="admin">Admin</option>
+                            <option value="opd">OPD Pharmacy</option>
+
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td><button style="width:120px;" class="btn btn-info" ng-click="sendRequest()">Send Request</button></td>
+                    </tr>
+
+                </table>
+
+
+
+            </div><!--/.fluid-container-->
+
+
+            <!-- end: Content -->
+        </div><!--/#content.span10-->
+    </div><!--/fluid-row-->
+</div>

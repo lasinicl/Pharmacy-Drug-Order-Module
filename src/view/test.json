@@ -1,0 +1,31 @@
+
+[
+  {
+    "name": "sasitha",
+    "belt": "green",
+    "rate": 10,
+    "available": true,
+    "thumb": "../../img/gallery/photo1.jpg"
+  },
+  {
+    "name": "premadasa",
+    "belt": "yellow",
+    "rate": 20,
+    "available": true,
+    "thumb": "../../img/gallery/photo2.jpg"
+  },
+  {
+    "name": "danushi",
+    "belt": "red",
+    "rate": 30,
+    "available": true,
+    "thumb": "../../img/gallery/photo3.jpg"
+  },
+  {
+    "name": "pavi",
+    "belt": "blue",
+    "rate": 40,
+    "available": true,
+    "thumb": "../../img/gallery/photo4.jpg"
+  }
+]

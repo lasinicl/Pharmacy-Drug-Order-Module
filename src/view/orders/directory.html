@@ -1,0 +1,25 @@
+<div id="content" class="span10">
+
+    <div class="content">
+
+        <button class="btn btn btn-primary" ng-click="order = 'name'">Order by name</button>
+        <button class="btn btn-success" ng-click="order = 'belt'">Order by belt</button>
+        <input class="text-success" type="text" ng-model="search">
+        <ul ng-repeat="arrr in arr | orderBy : order | filter : search" ng-show="arrr.available">
+            <li>
+                <img ng-src="{{arrr.thumb}}" style="width: 20px; height: 20px;" ng-show="arrr.thumb">
+                {{arrr.name}} - {{arrr.rate | currency:'Rs'}}
+                <span style="background-color: {{arrr.belt}} ;">{{arrr.belt}} belt</span>
+                <a ng-click="removePlayer(arrr)"> X </a>
+            </li>
+        </ul>
+        <form ng-submit="addPlayer()">
+            <input type="text" placeholder="Name" ng-model="newplayer.name">
+            <input type="text" placeholder="Belt" ng-model="newplayer.belt">
+            <input type="text" placeholder="Rate" ng-model="newplayer.rate">
+            <input type="submit" value="Insert Player">
+        </form>
+
+    </div>
+
+</div>
